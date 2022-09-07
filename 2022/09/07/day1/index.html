@@ -72,7 +72,7 @@
         <div class="content markdown">
             <p>题目描述<br>有一群孩子和一堆饼干，每个孩子有一个饥饿度，每个饼干都有一个大小。每个孩子只能吃最多一个饼干，且只有饼干的大小大于孩子的饥饿度时，这个孩子才能吃饱。求解最多有多少孩子可以吃饱。</p>
 <p>输入输出样例<br>输入两个数组，分别代表孩子的饥饿度和饼干的大小。输出最多有多少孩子可以吃饱的数量。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2], [1,2,3]，</span><br><span class="line"> </span><br><span class="line">Output: 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2], [1,2,3]</span><br><span class="line"> </span><br><span class="line">Output: 2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>解析<br>题目要求我们尽可能多的解决饥饿的孩子，那么我们应该能知道饥饿度小的孩子更容易满足，所以我们先为饥饿度小的孩子找到适合他的饼干，然后对剩下的孩子进行如上操作。那么我们只需要对饼干大小和孩子的饥饿度都从小到大进行排序，然后依次匹配，优先满足小的，就能解决问腿。</p>
 <p>代码实现</p>
