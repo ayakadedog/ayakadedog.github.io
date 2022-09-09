@@ -5,13 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LeetCode101 day1 - 我の小世界</title>
+    <title>LeetCode101 day3 - 我の小世界</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="题目描述有一群孩子和一堆饼干，每个孩子有一个饥饿度，每个饼干都有一个大小。每个孩子只能吃最多一个饼干，且只有饼干的大小大于孩子的饥饿度时，这个孩子才能吃饱。求解最多有多少孩子可以吃饱。
-输入输出样例,"> 
+    <meta name="description" content="题目描述有一些球形气球贴在一堵用 XY 平面表示的墙面上。墙面上的气球记录在整数数组 points ，其中points[i] &amp;#x3D; [xstart, xend] 表示水平直径在 xstart,"> 
     <meta name="author" content="HYF"> 
     <link rel="alternative" href="atom.xml" title="我の小世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -19,18 +18,16 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="LeetCode101 day1 - 我の小世界"/>
-    <meta name="twitter:description" content="题目描述有一群孩子和一堆饼干，每个孩子有一个饥饿度，每个饼干都有一个大小。每个孩子只能吃最多一个饼干，且只有饼干的大小大于孩子的饥饿度时，这个孩子才能吃饱。求解最多有多少孩子可以吃饱。
-输入输出样例,"/>
+    <meta name="twitter:title" content="LeetCode101 day3 - 我の小世界"/>
+    <meta name="twitter:description" content="题目描述有一些球形气球贴在一堵用 XY 平面表示的墙面上。墙面上的气球记录在整数数组 points ，其中points[i] &amp;#x3D; [xstart, xend] 表示水平直径在 xstart,"/>
     
     
     
     
     <meta property="og:site_name" content="我の小世界"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="LeetCode101 day1 - 我の小世界"/>
-    <meta property="og:description" content="题目描述有一群孩子和一堆饼干，每个孩子有一个饥饿度，每个饼干都有一个大小。每个孩子只能吃最多一个饼干，且只有饼干的大小大于孩子的饥饿度时，这个孩子才能吃饱。求解最多有多少孩子可以吃饱。
-输入输出样例,"/>
+    <meta property="og:title" content="LeetCode101 day3 - 我の小世界"/>
+    <meta property="og:description" content="题目描述有一些球形气球贴在一堵用 XY 平面表示的墙面上。墙面上的气球记录在整数数组 points ，其中points[i] &amp;#x3D; [xstart, xend] 表示水平直径在 xstart,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -48,7 +45,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">LeetCode101 day1</h3>
+    <h3 class="subtitle">LeetCode101 day3</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -63,21 +60,20 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">LeetCode101 day1</h1>
+        <h1 class="title">LeetCode101 day3</h1>
         <div class="stuff">
-            <span>九月 07, 2022</span>
+            <span>九月 09, 2022</span>
             
 
         </div>
         <div class="content markdown">
-            <p>题目描述<br>有一群孩子和一堆饼干，每个孩子有一个饥饿度，每个饼干都有一个大小。每个孩子只能吃最多一个饼干，且只有饼干的大小大于孩子的饥饿度时，这个孩子才能吃饱。求解最多有多少孩子可以吃饱。</p>
-<p>输入输出样例<br>输入两个数组，分别代表孩子的饥饿度和饼干的大小。输出最多有多少孩子可以吃饱的数量。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2], [1,2,3]</span><br><span class="line"> </span><br><span class="line">Output: 2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            <p>题目描述<br>有一些球形气球贴在一堵用 XY 平面表示的墙面上。墙面上的气球记录在整数数组 points ，其中points[i] &#x3D; [xstart, xend] 表示水平直径在 xstart 和 xend之间的气球。你不知道气球的确切 y 坐标。<br>一支弓箭可以沿着 x 轴从不同点 完全垂直 地射出。在坐标 x 处射出一支箭，若有一个气球的直径的开始和结束坐标为 xstart，xend， 且满足  xstart ≤ x ≤ xend，则该气球会被 引爆 。可以射出的弓箭的数量 没有限制 。 弓箭一旦被射出之后，可以无限地前进。<br>给你一个数组 points ，返回引爆所有气球所必须射出的 最小 弓箭数 。</p>
+<p>输入输出样例<br>输入是一个数组，表示气球的坐标。输出是最少箭的数量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [[10,16],[2,8],[1,6],[7,12]]</span><br><span class="line"></span><br><span class="line">Output: 2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>解析<br>题目要求我们尽可能多的解决饥饿的孩子，那么我们应该能知道饥饿度小的孩子更容易满足，所以我们先为饥饿度小的孩子找到适合他的饼干，然后对剩下的孩子进行如上操作。那么我们只需要对饼干大小和孩子的饥饿度都从小到大进行排序，然后依次匹配，优先满足小的，就能解决问腿。</p>
+<p>解析<br>题目要我们用最少的箭去处理最多的气球，那我们知道气球这种东西一射就爆，所以我们只需要去找到气球所公有的区间就可以了，那么的话就显而易见了，首先将所有数组以Xstart从小到大进行排序，然后分析排序后的第一个数组中的Xstart与后续数组中的Xend，如果第一个里面的Xstart小于了Xend，那么就说明不能一箭处理了，箭数+1，最后遍历完毕后还有最后一箭没有射出去，给他++补上。</p>
 <p>代码实现</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int findContentChildren(vector&lt;int&gt;&amp; children,vector&lt;int&gt;&amp; cookies) &#123;</span><br><span class="line">	sort(children.begin(), children.end());</span><br><span class="line">	sort(cookies.begin(), cookies.end());</span><br><span class="line">	int child = 0, cookie = 0;</span><br><span class="line">	while (child &lt; children.size() &amp;&amp; cookie &lt;cookies.size()) &#123;</span><br><span class="line">		if (children[child] &lt;= cookies[cookie]) </span><br><span class="line">		child++;</span><br><span class="line">	cookie++;</span><br><span class="line">	&#125;</span><br><span class="line">return child;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">struct point&#123;</span><br><span class="line">	int x, y;</span><br><span class="line">&#125;;</span><br><span class="line">bool cmp(point a, point b) &#123;</span><br><span class="line">		return a.x &lt; b.x;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	point arr[10];</span><br><span class="line">	int n = 4;</span><br><span class="line">	int count = 0;</span><br><span class="line">	for (int i = 0; i &lt; n; i++)&#123;</span><br><span class="line">		cin &gt;&gt; arr[i].x;</span><br><span class="line">		cin &gt;&gt; arr[i].y;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(arr, arr + n,cmp);</span><br><span class="line">	for (int i = 0; i &lt; n; i++)&#123;</span><br><span class="line">		cout &lt;&lt; &quot;[&quot; &lt;&lt; arr[i].x &lt;&lt; &quot;,&quot; &lt;&lt; arr[i].y &lt;&lt; &quot;]&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	int a = 0;</span><br><span class="line">	for (int i = 0; i &lt; n-1; i++)&#123;</span><br><span class="line">		if (arr[a].y &lt; arr[i + 1].x) &#123;</span><br><span class="line">			count++;</span><br><span class="line">			a = i+1;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; count+1;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
