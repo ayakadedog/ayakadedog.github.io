@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="题目描述一群孩子站成一排，每一个孩子有自己的评分。现在需要给这些孩子发糖果，规则是如果一个孩子的评分比自己身旁的一个孩子要高，那么这个孩子就必须得到比身旁孩子更多的糖果；所有孩子至少要有一个糖果。求,"> 
+    <meta name="description" content="题目描述135. Candy一群孩子站成一排，每一个孩子有自己的评分。现在需要给这些孩子发糖果，规则是如果一个孩子的评分比自己身旁的一个孩子要高，那么这个孩子就必须得到比身旁孩子更多的糖果；所有孩子,"> 
     <meta name="author" content="HYF"> 
     <link rel="alternative" href="atom.xml" title="我の小世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -19,7 +19,7 @@
     
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:title" content="LeetCode101 day2 - 我の小世界"/>
-    <meta name="twitter:description" content="题目描述一群孩子站成一排，每一个孩子有自己的评分。现在需要给这些孩子发糖果，规则是如果一个孩子的评分比自己身旁的一个孩子要高，那么这个孩子就必须得到比身旁孩子更多的糖果；所有孩子至少要有一个糖果。求,"/>
+    <meta name="twitter:description" content="题目描述135. Candy一群孩子站成一排，每一个孩子有自己的评分。现在需要给这些孩子发糖果，规则是如果一个孩子的评分比自己身旁的一个孩子要高，那么这个孩子就必须得到比身旁孩子更多的糖果；所有孩子,"/>
     
     
     
@@ -27,7 +27,7 @@
     <meta property="og:site_name" content="我の小世界"/>
     <meta property="og:type" content="object"/>
     <meta property="og:title" content="LeetCode101 day2 - 我の小世界"/>
-    <meta property="og:description" content="题目描述一群孩子站成一排，每一个孩子有自己的评分。现在需要给这些孩子发糖果，规则是如果一个孩子的评分比自己身旁的一个孩子要高，那么这个孩子就必须得到比身旁孩子更多的糖果；所有孩子至少要有一个糖果。求,"/>
+    <meta property="og:description" content="题目描述135. Candy一群孩子站成一排，每一个孩子有自己的评分。现在需要给这些孩子发糖果，规则是如果一个孩子的评分比自己身旁的一个孩子要高，那么这个孩子就必须得到比身旁孩子更多的糖果；所有孩子,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -67,7 +67,7 @@
 
         </div>
         <div class="content markdown">
-            <p>题目描述<br>一群孩子站成一排，每一个孩子有自己的评分。现在需要给这些孩子发糖果，规则是如果一个孩子的评分比自己身旁的一个孩子要高，那么这个孩子就必须得到比身旁孩子更多的糖果；所有孩子至少要有一个糖果。求解最少需要多少个糖果。</p>
+            <p>题目描述<br>135. Candy<br>一群孩子站成一排，每一个孩子有自己的评分。现在需要给这些孩子发糖果，规则是如果一个孩子的评分比自己身旁的一个孩子要高，那么这个孩子就必须得到比身旁孩子更多的糖果；所有孩子至少要有一个糖果。求解最少需要多少个糖果。</p>
 <p>输入输出样例<br>输入是一个数组，表示孩子的评分。输出是最少糖果的数量。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,0,2]</span><br><span class="line"></span><br><span class="line">Output: 5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -75,7 +75,7 @@
 <p>代码实现</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">	int score[] = &#123; 1,0,2 &#125;;</span><br><span class="line">	int count = 0;</span><br><span class="line">	int candy[end(score) - begin(score)] = &#123; 0 &#125;;</span><br><span class="line">	for (int i = 0; i &lt; end(score) - begin(score); i++) &#123;</span><br><span class="line">		candy[i] += 1;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = 0; i &lt; end(score) - begin(score) - 1; i++) &#123;</span><br><span class="line">		if (score[i] &gt; score[i + 1])</span><br><span class="line">			candy[i]++;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = end(score) - begin(score)-1; i &gt; 0; i--) &#123;</span><br><span class="line">		if (score[i] &lt; score[i - 1])&#123;</span><br><span class="line">			candy[i - 1] = max(candy[i - 1], candy[i] + 1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = 0; i &lt; end(score) - begin(score); i++)&#123;</span><br><span class="line">		count = count + candy[i];</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; count;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>题目描述<br>假设有一个很长的花坛，一部分地块种植了花，另一部分却没有。可是，花不能种植在相邻的地块上，它们会争夺水源，两者都会死去。给你一个整数数组  flowerbed 表示花坛，由若干 0 和 1 组成，其中 0 表示没种植花，1 表示种植了花。另有一个数 n ，能否在不打破种植规则的情况下种入 n 朵花？能则返回 true ，不能则返回 false。</p>
+<p>题目描述<br>605. Can Place Flowers<br>假设有一个很长的花坛，一部分地块种植了花，另一部分却没有。可是，花不能种植在相邻的地块上，它们会争夺水源，两者都会死去。给你一个整数数组  flowerbed 表示花坛，由若干 0 和 1 组成，其中 0 表示没种植花，1 表示种植了花。另有一个数 n ，能否在不打破种植规则的情况下种入 n 朵花？能则返回 true ，不能则返回 false。</p>
 <p>输入输出样例<br>输入是一个数组，表示孩子的评分。输出是最少糖果的数量。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Input：flowerbed = [1,0,0,0,1], n = 1</span><br><span class="line"></span><br><span class="line">Output：true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 

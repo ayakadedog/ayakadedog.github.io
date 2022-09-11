@@ -10,8 +10,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="题目描述字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。返回一个表示每个字符串片段的长度的列表。
-输入输出样例输入是一个字符串，输出分段的每个字符串,"> 
+    <meta name="description" content="题目描述763. Partition Labels字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。返回一个表示每个字符串片段的长度的列表。
+输入输出,"> 
     <meta name="author" content="HYF"> 
     <link rel="alternative" href="atom.xml" title="我の小世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -20,8 +20,8 @@
     
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:title" content="LeetCode101 day4 - 我の小世界"/>
-    <meta name="twitter:description" content="题目描述字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。返回一个表示每个字符串片段的长度的列表。
-输入输出样例输入是一个字符串，输出分段的每个字符串,"/>
+    <meta name="twitter:description" content="题目描述763. Partition Labels字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。返回一个表示每个字符串片段的长度的列表。
+输入输出,"/>
     
     
     
@@ -29,8 +29,8 @@
     <meta property="og:site_name" content="我の小世界"/>
     <meta property="og:type" content="object"/>
     <meta property="og:title" content="LeetCode101 day4 - 我の小世界"/>
-    <meta property="og:description" content="题目描述字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。返回一个表示每个字符串片段的长度的列表。
-输入输出样例输入是一个字符串，输出分段的每个字符串,"/>
+    <meta property="og:description" content="题目描述763. Partition Labels字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。返回一个表示每个字符串片段的长度的列表。
+输入输出,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -70,7 +70,7 @@
 
         </div>
         <div class="content markdown">
-            <p>题目描述<br>字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。返回一个表示每个字符串片段的长度的列表。</p>
+            <p>题目描述<br>763. Partition Labels<br>字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。返回一个表示每个字符串片段的长度的列表。</p>
 <p>输入输出样例<br>输入是一个字符串，输出分段的每个字符串长度。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: S = &quot;ababcbacadefegdehijhklij&quot;</span><br><span class="line"></span><br><span class="line">Output: [9,7,8]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -79,7 +79,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">char ch[10000];</span><br><span class="line">int main() &#123;</span><br><span class="line">	cin &gt;&gt; ch;</span><br><span class="line">	int len = strlen(ch);</span><br><span class="line">	int En[26];</span><br><span class="line">	for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">		En[ch[i] - &#x27;a&#x27;] = i;</span><br><span class="line">	&#125;</span><br><span class="line">	int start = 0, end = 0;</span><br><span class="line">	int num[100];</span><br><span class="line">	for (int i = 0; i &lt; len; i++)&#123;</span><br><span class="line">		end = max(end, En[ch[i] - &#x27;a&#x27;]); </span><br><span class="line">		if (i == end) &#123;</span><br><span class="line">			cout&lt;&lt; end - start + 1;</span><br><span class="line">			start = end + 1;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<p>题目描述<br>给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。<br>在每一天，你可以决定是否购买和&#x2F;或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。<br>返回 你能获得的 最大 利润 。</p>
+<p>题目描述<br>122. Best Time to Buy and Sell Stock II<br>给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。<br>在每一天，你可以决定是否购买和&#x2F;或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。<br>返回 你能获得的 最大 利润 。</p>
 <p>输入输出样例<br>输入是一个数组，输出能获得的最大利润。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: prices = [7,1,5,3,6,4]</span><br><span class="line"></span><br><span class="line">Output: 7</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
