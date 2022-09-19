@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LeetCode101 day2 - 我の小世界</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="题目描述167. Two Sum II - Input array is sorted在一个增序的整数数组里找到两个数，使它们的和为给定值。已知有且只有一对解.
+输入输出样例输入是一个数组（numb,"> 
+    <meta name="author" content="HYF"> 
+    <link rel="alternative" href="atom.xml" title="我の小世界" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="LeetCode101 day2 - 我の小世界"/>
+    <meta name="twitter:description" content="题目描述167. Two Sum II - Input array is sorted在一个增序的整数数组里找到两个数，使它们的和为给定值。已知有且只有一对解.
+输入输出样例输入是一个数组（numb,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="我の小世界"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="LeetCode101 day2 - 我の小世界"/>
+    <meta property="og:description" content="题目描述167. Two Sum II - Input array is sorted在一个增序的整数数组里找到两个数，使它们的和为给定值。已知有且只有一对解.
+输入输出样例输入是一个数组（numb,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">我の小世界</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">LeetCode101 day2</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">LeetCode101 day2</h1>
+        <div class="stuff">
+            <span>九月 13, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>题目描述<br>167. Two Sum II - Input array is sorted<br>在一个增序的整数数组里找到两个数，使它们的和为给定值。已知有且只有一对解.</p>
+<p>输入输出样例<br>输入是一个数组（numbers）和一个给定值（target）。输出是两个数的位置，从 1 开始计数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: numbers = [2,7,11,15], target = 9</span><br><span class="line"></span><br><span class="line">Output: [1,2]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解析<br>题目要求我们找到数组中两个值加起来的一个目标值，那么我们只需要从零开始逐一遍历过来就行，但这么做程序运行就会比较繁琐，那我们这时候注意到这个数组是有序排列的，那何不对其分别从开头和结尾同时开始遍历呢，若开头+结尾过大，那就结尾–，反之开头++，最后就能得到目标元素。</p>
+<p>代码实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; numbers, int target) </span><br><span class="line">    &#123;</span><br><span class="line">    int l = 0,r = numbers.size()-1,count;</span><br><span class="line">	while (l&lt;=r)</span><br><span class="line">    &#123;</span><br><span class="line">		count = numbers[l] + numbers[r];</span><br><span class="line">		if (count == target) &#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		else if (count &gt; target) &#123;</span><br><span class="line">			r--;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">			l++;</span><br><span class="line">	&#125;</span><br><span class="line">    return vector&lt;int&gt;&#123;l + 1, r + 1&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>题目描述<br>88. Merge Sorted Array<br>给定两个有序数组，把两个数组合并为一个</p>
+<p>输入输出样例<br>输入是两个数组和它们分别的长度 m 和 n。其中第一个数组的长度被延长至 m + n，多出的<br>n 位被 0 填补。题目要求把第二个数组归并到第一个数组上，不需要开辟额外空间。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3</span><br><span class="line"></span><br><span class="line">Output: nums1 = [1,2,2,3,5,6]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解析<br>题目很简单啊，一句话就是把短数组塞进长数组，那么我们就需要三个指针一个是大数组的指针，一个是大数组中有用值的指针，一个是小数组的指针，之后循环两个数组，从最后面开始放，大的先放，放完安排小的</p>
+<p>代码实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &#123;</span><br><span class="line">        int pos = m + n - 1;</span><br><span class="line">        m--,n--;</span><br><span class="line">        while (m &gt;= 0 &amp;&amp; n &gt;= 0) &#123;</span><br><span class="line">        if(nums1[m] &gt; nums2[n])</span><br><span class="line">             &#123;</span><br><span class="line">                 nums1[pos] = nums1[m];</span><br><span class="line">                 pos--;</span><br><span class="line">                 m--;</span><br><span class="line">             &#125;</span><br><span class="line">             else</span><br><span class="line">             &#123;</span><br><span class="line">                 nums1[pos] = nums2[n];</span><br><span class="line">                 pos--;</span><br><span class="line">                 n--;</span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        while (n &gt;= 0) &#123;</span><br><span class="line">        nums1[pos--] = nums2[n--];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
