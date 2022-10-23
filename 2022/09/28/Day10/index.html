@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Day10 - 我の小世界</title>
+    <title>LeetCode101 day9 - 我の小世界</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    
+    <meta name="description" content="题目描述81. Search in Rotated Sorted Array II一个原本增序的数组被首尾相连后按某个位置断开（如 [1,2,2,3,4,5] → [2,3,4,5,1,2]，在第一,"> 
     <meta name="author" content="HYF"> 
     <link rel="alternative" href="atom.xml" title="我の小世界" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -18,16 +18,16 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="Day10 - 我の小世界"/>
-    
+    <meta name="twitter:title" content="LeetCode101 day9 - 我の小世界"/>
+    <meta name="twitter:description" content="题目描述81. Search in Rotated Sorted Array II一个原本增序的数组被首尾相连后按某个位置断开（如 [1,2,2,3,4,5] → [2,3,4,5,1,2]，在第一,"/>
     
     
     
     
     <meta property="og:site_name" content="我の小世界"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="Day10 - 我の小世界"/>
-    
+    <meta property="og:title" content="LeetCode101 day9 - 我の小世界"/>
+    <meta property="og:description" content="题目描述81. Search in Rotated Sorted Array II一个原本增序的数组被首尾相连后按某个位置断开（如 [1,2,2,3,4,5] → [2,3,4,5,1,2]，在第一,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -45,7 +45,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">Day10</h3>
+    <h3 class="subtitle">LeetCode101 day9</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -60,14 +60,21 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">Day10</h1>
+        <h1 class="title">LeetCode101 day9</h1>
         <div class="stuff">
             <span>九月 28, 2022</span>
             
 
         </div>
         <div class="content markdown">
-            
+            <p>题目描述<br>81. Search in Rotated Sorted Array II<br>一个原本增序的数组被首尾相连后按某个位置断开（如 [1,2,2,3,4,5] → [2,3,4,5,1,2]，在第一位和第二位断开），我们称其为旋转数组。给定一个值，判断这个值是否存在于这个为旋转数组<br>中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [2,5,6,0,0,1,2], target = 0</span><br><span class="line">Output: true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解析<br>这个判断数在不在数组里面很简单啊，跑一遍和sort一下都很快，但这样就没用上旋转数组这个概念有点浪费啊。<br>既然他告诉了你这个数组是把前面一部分的数放到了后面，那么必定就有一个点是让他们分开，左边是递增右边也是递增的，那当我们找到这个数的时候再比较一下它和目标值谁大不就能解决问题了么。</p>
+<p>代码实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">   bool search(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">    int start = 0, end = nums.size() - 1;</span><br><span class="line">    while (start &lt;= end) </span><br><span class="line">    &#123;</span><br><span class="line">        int mid = (start + end) / 2;</span><br><span class="line">        if (nums[mid] == target) </span><br><span class="line">        &#123;</span><br><span class="line">        return true;</span><br><span class="line">        &#125;</span><br><span class="line">        if (nums[start] == nums[mid]) </span><br><span class="line">        &#123;</span><br><span class="line">            start++;</span><br><span class="line">        &#125; </span><br><span class="line">        else if (nums[mid] &lt;= nums[end]) </span><br><span class="line">        &#123;</span><br><span class="line">        if (target &gt; nums[mid] &amp;&amp; target &lt;= nums[end]) </span><br><span class="line">        &#123;</span><br><span class="line">            start = mid + 1;</span><br><span class="line">        &#125; </span><br><span class="line">        else </span><br><span class="line">        &#123;</span><br><span class="line">            end = mid - 1;</span><br><span class="line">        &#125;   </span><br><span class="line">        &#125; </span><br><span class="line">        else &#123;</span><br><span class="line">        if (target &gt;= nums[start] &amp;&amp; target &lt; nums[mid]) </span><br><span class="line">        &#123;</span><br><span class="line">            end = mid - 1;</span><br><span class="line">        &#125; </span><br><span class="line">        else </span><br><span class="line">        &#123;</span><br><span class="line">        start = mid + 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>题目描述<br>154. Find Minimum in Rotated Sorted Array II</p>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
